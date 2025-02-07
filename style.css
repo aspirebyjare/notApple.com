@@ -1,0 +1,364 @@
+/* DEBUG */
+/* * {
+    background-color: black !important;
+    color: black !important;
+    border: 2px solid red !important;
+} */
+
+body {
+    margin: 0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro",
+      "Helvetica Neue", Arial, sans-serif;
+    background-color: black;
+  }
+  /* --------------------------------------- */
+  /*  PART 1  */
+  /* --------------------------------------- */
+  
+  /*  NAVBAR  */
+  
+  .navbar {
+    position: relative;
+    background-color: #000000;
+    padding: 10px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  .navbar__list-item {
+    margin: 0 10px;
+  }
+  .navbar__list-item a {
+    font-family: "Lato", sans-serif;
+    color: white;
+    transition: 0.2s ease;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* .navbar__list-item a:hover {
+    drop down menus 
+  } */
+  .navbar__icon {
+    display: inline-block;
+    color: white;
+    font-size: 25px;
+    transition: 2s ease;
+  }
+  .navbar__icon:hover {
+    transform: rotate(45deg);
+  }
+  @media (max-width: 950px) {
+    .navbar a {
+      display: none; /* Hides all <a> elements in the navbar */
+    }
+  }
+  
+  /* RIBBON  */
+  
+  .ribbon-tradein {
+    background-color: #1d1d1f;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    height: 52px;
+  }
+  .ribbon-tradein p {
+    margin: 12px 0px;
+    color: white;
+  }
+  .ribbon-tradein a {
+    color: #007aff;
+    margin-top: 12px;
+    margin-left: 3px;
+    text-decoration: none;
+  }
+  
+  /* HERO image  */
+  
+  .hero-container {
+    position: relative; /* Makes this the reference for absolute positioning */
+    width: 100vw;
+    height: 100vh; /* Full viewport height */
+    padding: 0;
+    outline-style: none;
+    overflow: hidden;
+    z-index: -5;
+  }
+  
+  .hero-image {
+    background-image: url("https://www.apple.com/v/iphone-16-pro/d/images/overview/welcome/hero_endframe__b3cjfkquc2s2_large.jpg");
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  .hello-AI {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 600px;
+    z-index: 500;
+  }
+  
+  .hero-container h1 {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 11;
+    text-align: center;
+  }
+  
+  .hero-container button {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    z-index: 11;
+    text-align: center;
+    background-color: #007aff;
+    border-radius: 30px;
+    padding: 15px 20px;
+  }
+  
+  .hero-bottom-text {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    text-align: center;
+    gap: 10px; /* Space between h2 and h3 */
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .hero-container h2 {
+    position: fixed;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    z-index: 11;
+    text-align: left;
+  }
+  
+  .hero-container h3 {
+    position: fixed;
+    top: 77%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #3a3a3c;
+    font-size: 1.25rem;
+    font-weight: bold;
+    z-index: 11;
+    text-align: left;
+  }
+  
+  /* --------------------------------------- */
+  /* PART 2  */
+  /* --------------------------------------- */
+  main {
+    background-color: #1d1d1f;
+    /* padding: 5%; */
+    padding-bottom: 100px;
+  }
+  
+  .interlude {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 150px;
+    padding-bottom: 80px;
+  }
+  
+  .interlude h1 {
+    color: white;
+    font-size: 5vw;
+    margin: 0;
+  }
+  
+  .watch-link {
+    color: #007aff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding-top: 28px;
+  }
+  
+  /* Carousel */
+  .carousel {
+    width: 80%;
+    max-width: 1000px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 10px; /* Optional: Rounded corners */
+    background-color: black;
+  }
+  
+  .carousel-track {
+    display: flex;
+    width: 400%; /* Ensure all 4 images fit in one row */
+    animation: scrollCarousel 16s ease-in-out infinite; /* Adjusted for smooth stopping */
+  }
+  
+  .carousel-track img {
+    width: 25%; /* Each image takes up exactly 1/4 of the track */
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
+  
+  /* Improved Auto-Scrolling Keyframes (Stops for 0.5s on Each Image) */
+  @keyframes scrollCarousel {
+    0%,
+    20% {
+      transform: translateX(0);
+    } /* Image 1 - Stop */
+    25%,
+    45% {
+      transform: translateX(-25%);
+    } /* Image 2 - Stop */
+    50%,
+    70% {
+      transform: translateX(-50%);
+    } /* Image 3 - Stop */
+    75%,
+    95% {
+      transform: translateX(-75%);
+    } /* Image 4 - Stop */
+    100% {
+      transform: translateX(0);
+    } /* Loop back */
+  }
+  /* About me section */
+  .about {
+    color: white;
+    background-image: linear-gradient(#1d1d1f, black);
+    background-color: black;
+    margin: 0;
+    padding: 10% 5%;
+    border: 5px solid orange;
+    border-image: linear-gradient(45deg, #ff6eb9, #6e85ff) 1;
+  }
+  
+  .about h1 {
+    text-align: center;
+  }
+  
+  /* Experimental  */
+  #centerThis {
+    text-align: center;
+  }
+  
+  /* contact info */
+  
+  .preload {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
+  
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* body {
+    color: wheat;
+    font-size: 14px;
+  } */
+  
+  #container {
+    width: 200px;
+    height: 200px;
+    background-color: #ff6eb9;
+    margin: 25px auto;
+    transition-duration: 1s;
+    overflow: hidden;
+  }
+  
+  #container:hover {
+    width: 400px;
+    background-color: #6e85ff;
+    border-radius: 30px;
+  }
+  
+  #container img {
+    display: inline-block;
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    transition-duration: 0.5s;
+  }
+  
+  #container:hover img {
+    padding: 15px;
+    border-radius: 50%;
+  }
+  
+  #desc {
+    display: inline-block;
+    vertical-align: middle;
+    width: 170px;
+  }
+  
+  /* Version Visualizer */
+  .float-text {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .float-entry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .float-entry-text {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .float-entry-media video {
+    width: 320px;
+    height: 180px;
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 768px) {
+    .float-entry {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .float-entry-text {
+      text-align: center;
+    }
+  
+    .float-entry-media video {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
